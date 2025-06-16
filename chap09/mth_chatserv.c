@@ -64,7 +64,7 @@ void removeClient(int sock) {
 // 클라이언트의 메세지를 read, socklist 배열에 write 작업 수행하는 함수 (뮤텍스 사용)
 void *recv_and_send(void *arg) {
     int i, nbyte, sock = *((int*)arg);
-    char buf[MAXlINE + 1];
+    char buf[MAXLINE + 1];
 
     printf("thread %lu started,\n", pthread_self());
 
