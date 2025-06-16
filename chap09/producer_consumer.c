@@ -36,12 +36,12 @@ void *consumer_func(void *arg) {
     while (1) {
         pthread_mutex_lock(&resource_lock);
 
-        while (resouce_count == 0)
+        while (resource_count == 0)
             pthread_cond_wait(&resource_cond, &resource_lock);
         trial++;
 
         if (resource_count > 0) {
-            resouce_count--;
+            resource_count--;
             success++;
         }
 
