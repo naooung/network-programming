@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
 
     // key를 기반으로 메세지큐 생성 후 id 리턴
     int qid = msgget(key, IPC_CREAT | 0600);
-    if (pid < 0) {
+    if (qid < 0) {
         perror("msgget");
         exit(EXIT_FAILURE);
     }
