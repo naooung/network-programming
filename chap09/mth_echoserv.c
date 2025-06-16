@@ -1,11 +1,13 @@
 #include "netprog2.h"
 #include <pthread.h>
 
+#define MAXLINE 511
 void *echo(void *arg);
 
 int main(int argc, char *argv[]) {
     struct sockaddr_in cliaddr;
     int listen_sock, sock, addrlen = sizeof(struct sockaddr_in);
+    pthread_t tid;
 
     if (argc != 2) {
         printf("Usage: %s port\n", argv[0]);
